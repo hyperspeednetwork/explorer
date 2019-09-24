@@ -1,0 +1,184 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /api/v1
+paths:
+  /accountInfo/:
+    get:
+      tags:
+      - accountInfo
+      operationId: BaseInfoController.
+      responses:
+        code:
+          description: "1"
+  /blocks/:
+    get:
+      tags:
+      - blocks
+      description: 默认获取after head的20个区块详细信息
+      operationId: BlockController.获取区快
+      responses:
+        code:
+          description: "1"
+  /delegatorAllKindsReward/:
+    get:
+      tags:
+      - delegatorAllKindsReward
+      operationId: KindsRewardController.
+      responses:
+        code:
+          description: "1"
+  /delegatorTxs/:
+    get:
+      tags:
+      - delegatorTxs
+      operationId: DelegatorTxController.
+      responses:
+        code:
+          description: "1"
+  /delegators/:
+    get:
+      tags:
+      - delegators
+      operationId: DeleatorsController.
+      responses:
+        code:
+          description: "1"
+  /drawing/:
+    get:
+      tags:
+      - drawing
+      description: 首页小图
+      operationId: DrawingDataController.Get
+      responses:
+        code:
+          description: "1"
+  /public/:
+    get:
+      tags:
+      - public
+      description: public Item
+      operationId: PublicController.Get
+      responses:
+        code:
+          description: "1"
+  /tx/:
+    get:
+      tags:
+      - tx
+      description: 通过hash 查询 tx详情
+      operationId: TxDetailControllers.获取tx detail
+      responses:
+        code:
+          description: "1"
+  /txs/:
+    get:
+      tags:
+      - txs
+      description: 默认获取after head的5个tx
+      operationId: TxsController.获取tx列表
+      responses:
+        code:
+          description: "1"
+  /unbonding/:
+    get:
+      tags:
+      - unbonding
+      operationId: UnbondingsController.
+      responses:
+        code:
+          description: "1"
+  /validatorBase/:
+    get:
+      tags:
+      - validatorBase
+      description: 通过validator address 查询 validator detail详情
+      operationId: VaBaseInfoController.获取validator detail
+      responses:
+        code:
+          description: "1"
+  /validatorDelegations/:
+    get:
+      tags:
+      - validatorDelegations
+      description: get delegations
+      operationId: DelegationsController.Get
+      responses:
+        code:
+          description: "1"
+  /validatorPowerEvent/:
+    get:
+      tags:
+      - validatorPowerEvent
+      description: get txs (delegate and undelegate)
+      operationId: PowerEventController.Get
+      responses:
+        code:
+          description: "1"
+  /validatorProposedBlock/:
+    get:
+      tags:
+      - validatorProposedBlock
+      description: get proposedBlocks
+      operationId: ProposedBlocksController.Get
+      responses:
+        code:
+          description: "1"
+  /validators/:
+    get:
+      tags:
+      - validators
+      description: get validators
+      operationId: ValidatorsController.获取Validators List
+      responses:
+        code:
+          description: "1"
+definitions:
+  models.Object:
+    title: Object
+    type: object
+    properties:
+      ObjectId:
+        type: string
+      PlayerName:
+        type: string
+      Score:
+        type: integer
+        format: int64
+  models.Profile:
+    title: Profile
+    type: object
+    properties:
+      Address:
+        type: string
+      Age:
+        type: integer
+        format: int64
+      Email:
+        type: string
+      Gender:
+        type: string
+  models.User:
+    title: User
+    type: object
+    properties:
+      Id:
+        type: string
+      Password:
+        type: string
+      Profile:
+        $ref: '#/definitions/models.Profile'
+      Username:
+        type: string
+tags:
+- name: txs
+  description: |
+    Operations about txs
