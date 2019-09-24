@@ -1,0 +1,91 @@
+package validatorDetails
+
+import (
+	"github.com/astaxie/beego"
+	"github.com/wongyinlong/hsnNet/models/validatorsDetail"
+	"strconv"
+)
+
+type DelegationsController struct {
+	beego.Controller
+}
+type MsgErr struct {
+	Code string `json:"code"`
+	Data error  `json:"data"`
+	Msg  string `json:"msg"`
+}
+type Msgs struct {
+	Code string `json:"code"`
+	Data DelegationMsg  `json:"data"`
+	Msg  string `json:"msg"`
+}
+type DelegationMsg struct {
+	TotalDelegations int `json:"total_delegation"`
+	OneDayAgoDelegations int `json:"one_day_ago_delegations"`
+	Delegations []Delegations `json:"delegations"`
+}
+type Delegations struct {
+	Address string `json:"address"`
+	Amount float64 `json:"amount"`
+	AmountPercentage float64 `json:"share"`
+}
+// @Title Get
+// @Description get delegations
+// @Success code 0
+// @Failure code 1
+// @router /
+func (dc *DelegationsController) Get() {
+	address := dc.GetString("address")
+	page, _ := dc.GetInt("page", 0)
+	size, _ := dc.GetInt("size", 0)
+	if size==0{
+		size=5
+	}
+	if address == "" {
+		var errorMessage MsgErr
+		errorMessage.Code = "1"
+		errorMessage.Data = nil
+		errorMessage.Msg = "validator address can not be empty!"
+		dc.Data["json"] = errorMessage
+		dc.ServeJSON()
+	}
+	var msg Msgs
+	var respJson DelegationMsg
+	var respJsonDelegations []Delegations
+	var respJsonDelegation Delegations
+	var delegations validatorsDetail.Delegators2
+	var baseInfo validatorsDetail.ExtraValidatorInfo
+	validatorBaseInfo := baseInfo.GetOne(address)
+
+	items,totalDelegations,oneDayAgoDelegations :=delegations.GetInfo(address,page, size)
+	for _,item :=range *items{
+		respJsonDelegation.Amount = getShares(items, item.DelegatorAddress)
+		respJsonDelegation.Address = item.DelegatorAddress
+		respJsonDelegation.AmountPercentage = getPercentage(respJsonDelegation.Amount,validatorBaseInfo.TotalToken)
+		respJsonDelegations = append(respJsonDelegations,respJsonDelegation)
+	}
+	respJson.TotalDelegations = totalDelegations
+	respJson.OneDayAgoDelegations = oneDayAgoDelegations
+	respJson.Delegations = respJsonDelegations
+	msg.Data = respJson
+	msg.Code = "0"
+	msg.Msg = "OK"
+	dc.Data["json"]=msg
+	dc.ServeJSON()
+}
+
+func getShares(items *[]validatorsDetail.Delegators2,address string)float64{
+	var amount float64
+	for _,item :=range *items{
+		if item.DelegatorAddress == address{
+			share,_:=strconv.ParseFloat(item.Shares,64)
+			amount =amount+share
+		}
+	}
+	return amount
+}
+func getPercentage(amout float64, totalToken float64)float64{
+
+	return amout/totalToken
+
+}

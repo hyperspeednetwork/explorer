@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="password" value="helloKitty" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="username" value="root" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="bcb" />
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="hsnhub_db_dev" />
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="hsnhub_db_dev" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="bcb" />
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="hsnhub_db_dev" />
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="hsnhub_db_dev" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="BCB" />
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="hsnhub_db_dev" />
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="hsnhub_db_dev" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="mongo" />
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="hsnhub_db_dev" />
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="hsnhub_db_dev" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="password" value="hsn" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.8.89:27890" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="hsnhub_db_dev" />
+          <option name="username" value="hsnhub_dev" />
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="me" />
+          <option name="serverUrls">
+            <list>
+              <option value="172.38.2.91:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="label" value="mysql" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+      </list>
+    </option>
+  </component>
+</project>
